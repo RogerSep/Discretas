@@ -1,8 +1,10 @@
+package cli
+
 import java.nio.file.Files
 
-import ports.cli.CliConfig
+import core.RooksProblem
 
-object Main {
+object Main extends RooksProblem {
   def main(args: Array[String]): Unit = {
     CliConfig.parser.parse(args, CliConfig()) match {
       case Some(config) => run(config)
@@ -11,7 +13,7 @@ object Main {
   }
 
   def run(config: CliConfig): Unit = {
-    val permutations = RooksProblem.show(RooksProblem.findPermutations(config.size))
+    val permutations = show(findPermutations(config.size))
 
     config.output match {
       case Some(outfile) => Files.write(outfile.toPath, permutations.getBytes("UTF-8"))

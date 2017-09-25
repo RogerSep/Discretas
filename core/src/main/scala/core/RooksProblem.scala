@@ -1,6 +1,8 @@
+package core
+
 import scala.reflect.ClassTag
 
-object RooksProblem {
+trait RooksProblem {
 
   val permutations2x2 = List(
     Array(

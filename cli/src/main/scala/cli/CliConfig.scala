@@ -1,8 +1,6 @@
-package ports.cli
+package cli
 
 import java.io.File
-
-import scala.util.Try
 
 case class CliConfig(
     size: Int = 8,
